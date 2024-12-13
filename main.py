@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,Path
 
 
 app = FastAPI()
@@ -11,3 +11,8 @@ def home():
 @app.get("/sergio")
 def sergio():
     return{"hello":"Sergio"}
+
+
+@app.get("/hello/{name}")
+def name(name:str =Path(...)):
+    return {"Hello":name}
